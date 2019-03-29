@@ -1,0 +1,11 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Edit Creatures{% endblock %}
+
+{% block body %}
+    <h1>Edit Creatures</h1>
+
+    {{ include('admin/creatures/_form.html.twig', {'button_label': 'Update'}) }}
+    <hr/>
+    {{ include('admin/creatures/_delete_form.html.twig') }}
+{% endblock %}

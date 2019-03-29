@@ -66,6 +66,7 @@ class Creatures
     {
         $this->tags = new ArrayCollection();
         $this->dateCreation=new \DateTime();
+        $this->slug = strtolower($this->nom);
     }
 
     public function getId(): ?int

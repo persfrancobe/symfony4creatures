@@ -1,6 +1,6 @@
 {% include 'partials/_head.html.twig' with {title: block('title')}  %}
 <body>
-{{ render(controller('App\\Controller\\Front\\PagesController::index')) }}
+{% block nav %}{% endblock %}
 <!-- Page Content -->
 <div class="container">
     <div class="row">
@@ -10,7 +10,7 @@
         </div>
         <!-- Sidebar Widgets Column -->
         <div class="col-md-4">
-            {% include 'partials/_sidebar.html.twig' %}
+            {% block sidebar %}{% endblock %}
         </div>
     </div>
     <!-- /.row -->

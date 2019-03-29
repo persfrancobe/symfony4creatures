@@ -13,12 +13,9 @@
             </div>
             <div class="col-md-8">
                 <h3>{{ creature.nom }}</h3>
-                <p class="lead">
-                    <a href="{{ path('app_creatures_show',{id:creature.id,slug:creature.slug}) }}">{{ creature.texteLead|slice(1, 5)}}</a>
-                <p id="spa"><strong><em>{{ creature.dateCreation|date("m/d/Y", "Europe/Paris") }}</em></strong></p>
-                </p>
+                <p class="lead">dans   <a class="btn btn-secondary" href="{{ path('app_films_show',{id:creature.film.id,slug:creature.film.slug}) }}">{{ creature.film.titre }}</a>{{ creature.dateCreation|date("m/d/Y", "Europe/Paris") }}</p>
                 <p>{{ creature.texteSuite}}</p>
-                <a class="btn btn-primary" href="{{ path('app_films_show',{id:creature.film.id,slug:creature.film.slug}) }}">{{ creature.film.titre }}</a>
+                <a class="btn btn-primary" href="{{ path('app_creatures_show',{id:creature.id,slug:creature.slug}) }}">Voir la Créature</a>
                 <hr/>
                 <ul class="list-inline tags">
                     {% for tag in creature.tags %}
@@ -30,4 +27,7 @@
         <!-- /.row -->
         <hr>
     {% endfor %}
+    <div class="navigation">
+        {{ knp_pagination_render(creatures) }}
+    </div>
 </div>

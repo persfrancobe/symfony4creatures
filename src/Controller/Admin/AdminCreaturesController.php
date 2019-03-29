@@ -1,36 +1,40 @@
 <?php
 
-namespace App\Controller\Back;
+namespace App\Controller\Admin;
 
 use App\Entity\Creatures;
 use App\Form\CreaturesType;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/creatures/")
+ * @Route("/admin/creatures",name="app_admin_creatures_")
  */
-class CreaturesController extends AbstractController
+class AdminCreaturesController extends AbstractController
 {
-  /***
+
     /**
-     * @Route("/", name="creatures_index", methods={"GET"})
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Knp\Component\Pager\PaginatorInterface   $paginator
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/", name="index", methods={"GET"})
      */
-    public function index(): Response
+    public function index(Request $request, PaginatorInterface $paginator): Response
     {
         $creatures = $this->getDoctrine()
             ->getRepository(Creatures::class)
             ->findAll();
-
-        return $this->render('creatures/index.html.twig', [
-            'creatures' => $creatures,
+        $pagination=$paginator->paginate($creatures,$request->query->getInt('page', 1),3);
+        return $this->render('admin/creatures/index.html.twig', [
+            'creatures' => $pagination
         ]);
     }
 
     /**
-     * @Route("/new", name="creatures_new", methods={"GET","POST"})
+     * @Route("/new", name="new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -43,27 +47,27 @@ class CreaturesController extends AbstractController
             $entityManager->persist($creature);
             $entityManager->flush();
 
-            return $this->redirectToRoute('creatures_index');
+            return $this->redirectToRoute('app_admin_creatures_index');
         }
 
-        return $this->render('creatures/new.html.twig', [
+        return $this->render('admin/creatures/new.html.twig', [
             'creature' => $creature,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="creatures_show", methods={"GET"})
+     * @Route("/{id}", name="show", methods={"GET"})
      */
     public function show(Creatures $creature): Response
     {
-        return $this->render('creatures/show.html.twig', [
+        return $this->render('admin/creatures/show.html.twig', [
             'creature' => $creature,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="creatures_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Creatures $creature): Response
     {
@@ -73,19 +77,19 @@ class CreaturesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('creatures_index', [
+            return $this->redirectToRoute('app_admin_creatures_index', [
                 'id' => $creature->getId(),
             ]);
         }
 
-        return $this->render('creatures/edit.html.twig', [
+        return $this->render('admin/creatures/edit.html.twig', [
             'creature' => $creature,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="creatures_delete", methods={"DELETE"})
+     * @Route("/{id}", name="delete", methods={"DELETE"})
      */
     public function delete(Request $request, Creatures $creature): Response
     {
@@ -95,6 +99,6 @@ class CreaturesController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('creatures_index');
+        return $this->redirectToRoute('app_admin_creatures_index');
     }
 }

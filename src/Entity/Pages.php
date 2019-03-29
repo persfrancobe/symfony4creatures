@@ -27,6 +27,11 @@ class Pages
     private $slug;
 
     /**
+     * @ORM\Column(type="string", length=45)
+     */
+    private $type;
+
+    /**
      * @ORM\Column(type="text")
      */
     private $texte;
@@ -35,6 +40,24 @@ class Pages
      * @ORM\Column(type="integer")
      */
     private $tri;
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type): void
+    {
+        $this->type = $type;
+    }
+
+
 
     public function getId(): ?int
     {

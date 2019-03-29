@@ -36,6 +36,7 @@ class Tags
     public function __construct()
     {
         $this->creatures = new ArrayCollection();
+        $this->slug = strtolower($this->nom);
     }
 
     public function getId(): ?int

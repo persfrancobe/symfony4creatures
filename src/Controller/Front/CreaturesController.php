@@ -4,6 +4,7 @@ namespace App\Controller\Front;
 
 use App\Entity\Creatures;
 use App\Service\SearchCreatures;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,17 +17,19 @@ class CreaturesController extends AbstractController
 {
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param Request $request
+     * @param PaginatorInterface $paginator
      * @param \App\Service\SearchCreatures              $searchCreatures
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/search",name="search",methods={"GET"})
      */
-    public function search(Request $request, SearchCreatures $searchCreatures){
+    public function search(Request $request, SearchCreatures $searchCreatures,PaginatorInterface $paginator){
         $smartkey=$request->query->get('smartkey');
         $creatures=$searchCreatures->search($smartkey);
+        $pagination=$paginator->paginate($creatures,$request->query->getInt('page', 1),3);
         return $this->render('front/pages/show.html.twig',[
-            'creatures'=>$creatures,
-            'page'=>['slug'=>'creatures','titre'=>'Créatures Trouvé','texte'=>count($creatures)." Resultat trouvé a Votre Recherche!"]
+            'creatures'=>$pagination,
+            'page'=>['slug'=>'les creatures','titre'=>'Créatures Trouvé','texte'=>" Resultat trouvé a Votre Recherche!"]
         ]);
 
     }
@@ -35,12 +38,13 @@ class CreaturesController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/", name="index", methods={"GET"},requirements={"id"="\d+"})
      */
-    public function index(): Response
+    public function index(Request $request,PaginatorInterface $paginator): Response
     {
         $creatures = $this->getDoctrine()
             ->getRepository(Creatures::class)->findBy([],['dateCreation'=>'DESC'],5);
+        $pagination=$paginator->paginate($creatures,$request->query->getInt('page', 1),3);
 
-        return $this->render('front/creatures/list.html.twig',['creatures' => $creatures]);
+        return $this->render('front/creatures/list.html.twig',['creatures' => $pagination]);
     }
 
 
