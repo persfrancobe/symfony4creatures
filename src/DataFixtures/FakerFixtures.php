@@ -30,12 +30,12 @@ class FakerFixtures extends Fixture
 
    for ($i = 0; $i < 20; $i++) {
     $creature = new Creatures();
-    $creature->setTexteSuite($faker->text(200));
+    $creature->setTexteSuite($faker->sentence(3));
     $a=$faker->word;
     $creature->setNom($a);
     $creature->setImage(($i+1).".jpg");
     $creature->setSlug($a);
-    $creature->setTexteLead($faker->sentence(3));
+    $creature->setTexteLead($faker->text(200));
        for ($i = 0; $i < 3; $i++) {
            $a=$faker->word;
            $film = new Films();
