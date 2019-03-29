@@ -26,7 +26,7 @@ class CreaturesRepository extends ServiceEntityRepository
 
     /**
      * @param array $arstr
-     * @return Creatures[] Returns an array of Creatures objects
+     * @return \Doctrine\ORM\Query
      */
     public function findByNom(Array $arstr)
     {
@@ -45,7 +45,7 @@ class CreaturesRepository extends ServiceEntityRepository
                  ->orWhere($qb->expr()->like('f.titre', $qb->expr()->literal('%' . $value . '%')))
                  ->orWhere($qb->expr()->like('t.nom', $qb->expr()->literal('%' . $value . '%')));
          }
-         return $qb->setMaxResults(10)->getQuery()->getResult();
+         return $qb->setMaxResults(10)->getQuery();
     }
 
     /*

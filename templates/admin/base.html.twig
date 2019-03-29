@@ -1,0 +1,4 @@
+{% extends 'base.html.twig' %}
+{% block nav %}{{ render(controller('App\\Controller\\Front\\PagesController::index',{type:'admin'})) }}{% endblock %}
+{% block body %}{% endblock %}
+{% block sidebar %}{% include 'partials/_sidebar.html.twig' %}{% endblock %}

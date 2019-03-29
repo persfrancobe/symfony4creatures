@@ -4,3 +4,11 @@ app_homepage:
     defaults:
         id: 1
         slug: "accueil"
+app_admin_homepage:
+    path: /admin
+    controller: App\Controller\Admin\AdminCreaturesController::index
+
+app_logout:
+    path: /logout
+    methods: GET
+

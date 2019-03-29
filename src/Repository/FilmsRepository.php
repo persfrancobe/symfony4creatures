@@ -19,22 +19,16 @@ class FilmsRepository extends ServiceEntityRepository
         parent::__construct($registry, Films::class);
     }
 
-    // /**
-    //  * @return Films[] Returns an array of Films objects
-    //  */
-    /*
-    public function findByExampleField($value)
+
+    public function findAllMe()
     {
         return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
             ->orderBy('f.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Films

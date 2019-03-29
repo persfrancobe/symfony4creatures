@@ -41,6 +41,7 @@ class Films
     public function __construct()
     {
         $this->creatures = new ArrayCollection();
+        $this->slug = strtolower($this->titre);
     }
 
     public function getId(): ?int

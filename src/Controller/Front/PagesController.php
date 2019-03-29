@@ -14,9 +14,9 @@ class PagesController extends AbstractController
 {
 
     /**
-     * @param \App\Entity\Pages $page
+     * @param Pages $page
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/{id}/{slug}", name="show", methods={"GET"}, methods={"GET"},requirements={"id":"[1-9][0-9]*"}))
+     * @Route("/{id}-{slug}", name="show",methods={"GET"})
      */
     public function show(Pages $page): Response
     {
@@ -28,11 +28,11 @@ class PagesController extends AbstractController
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index()
+    public function index($type)
     {
         $pages=$this->getDoctrine()->getRepository(Pages::class)->findAll();
         return $this->render('partials/_nav.html.twig',[
-            'pages'=>$pages
+            'pages'=>$pages,
         ]);
     }
 }
