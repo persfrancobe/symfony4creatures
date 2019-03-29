@@ -14,12 +14,11 @@
             <div class="col-md-8">
                 <h3>{{ creature.nom }}</h3>
                 <p class="lead">
-                    dans
                     <a href="{{ path('app_creatures_show',{id:creature.id,slug:creature.slug}) }}">{{ creature.texteLead|slice(1, 5)}}</a>
                 <p id="spa"><strong><em>{{ creature.dateCreation|date("m/d/Y", "Europe/Paris") }}</em></strong></p>
                 </p>
                 <p>{{ creature.texteSuite}}</p>
-                <a class="btn btn-primary" href="{{ path('app_creatures_show',{id:creature.id,slug:creature.slug}) }}">Voir la créature</a>
+                <a class="btn btn-primary" href="{{ path('app_films_show',{id:creature.film.id,slug:creature.film.slug}) }}">{{ creature.film.titre }}</a>
                 <hr/>
                 <ul class="list-inline tags">
                     {% for tag in creature.tags %}
