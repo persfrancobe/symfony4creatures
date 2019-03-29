@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block title %} {{ creature.slug |upper }} {% endblock %}
+{% block body %}
+    <!-- creature Heading -->
+    <!-- Title -->
+    <h1 class="mt-4">{{ creature.nom }}</h1>
+    <hr>
+    <!-- Post Content -->
+    <!-- Project One -->
+    <div class="row">
+        <div class="col-md-4">
+            <a href="{{ path('app_creatures_show',{id:creature.id,slug:creature.slug}) }}">
+                <img class="img-fluid rounded mb-3 mb-md-0" src="{{ asset('build/assets/images/'~creature.image) }}" alt="{{ creature.slug }}">
+            </a>
+        </div>
+        <div class="col-md-8">
+            <p class="lead">{{ creature.texteLead }}</p>
+            <hr/>
+            <p class="lead">{{ creature.texteSuite }}</p>
+            <hr/>
+            <h2>Film</h2>
+                <h3><a href="{{ path('app_films_show',{id:creature.film.id,slug:creature.film.slug}) }}">{{ creature.film.titre }}</a></h3>
+            <hr/>
+            <h2>Tags</h2>
+            <ul>
+                {% for tag in creature.tags %}
+                    <li><a href="{{ path('app_tags_show',{id:tag.id,slug:tag.slug}) }}">{{ tag.nom }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <!-- /.row -->
+    <hr>
+{% endblock %}

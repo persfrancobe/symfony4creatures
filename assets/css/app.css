@@ -1,0 +1,36 @@
+/*!
+ * Start Bootstrap - Blog Post (https://startbootstrap.com/template-overviews/blog-post)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-blog-post/blob/master/LICENSE)
+ */
+
+
+body {
+  padding-top: 54px;
+}
+
+img {
+  width: 100%;
+}
+
+.list-inline > li {
+  display: inline-block;
+}
+
+.tags .btn {
+  background: #eee;
+  color: #aaa;
+  font-size: .6em;
+}
+
+.tags .btn:hover {
+  background: #ccc;
+  color: #fff;
+  font-size: .6em;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}

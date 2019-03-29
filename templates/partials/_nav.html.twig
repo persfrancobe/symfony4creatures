@@ -1,0 +1,18 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="{{ path('app_homepage') }}">Vintage Sci-Fi - Les Créatures du Futur</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                {% for page in pages %}
+                <li class="nav-item {% if app.request.get('slug') == page.slug %}active{% endif %}">
+                    <a class="nav-link" href="{{ path('app_pages_show',{id:page.id,slug:page.slug}) }}">{{ page.slug | upper }} </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>

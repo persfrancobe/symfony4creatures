@@ -1,0 +1,6 @@
+app_homepage:
+    path: /
+    controller: App\Controller\Front\PagesController::show
+    defaults:
+        id: 1
+        slug: "accueil"

@@ -1,0 +1,19 @@
+{% include 'partials/_head.html.twig' with {title: block('title')}  %}
+<body>
+{{ render(controller('App\\Controller\\Front\\PagesController::index')) }}
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+         <!-- Post Content Column -->
+        <div class="col-lg-8">
+            {% block body %}{% endblock %}
+        </div>
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+            {% include 'partials/_sidebar.html.twig' %}
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+{% include 'partials/_footer.html.twig' %}

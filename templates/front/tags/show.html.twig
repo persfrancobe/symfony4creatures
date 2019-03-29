@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block title %} {{ tag.slug |upper }} {% endblock %}
+{% block body %}
+    <!-- tag Heading -->
+    <!-- Title -->
+    <h1 class="mt-4">{{ tag.nom }}</h1>
+    <hr>
+    <!-- Post Content -->
+    <!-- Project One -->
+    <div class="row">
+        <div class="col-md-4">
+            <a href="{{ path('app_creatures_show',{id:tag.id,slug:tag.slug}) }}">
+                <img class="img-fluid rounded mb-3 mb-md-0" src="{{ asset('build/assets/images/'~random(21,30)~'.jpg') }}" alt="{{ tag.slug }}">
+            </a>
+        </div>
+        <div class="col-md-8">
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus corporis cupiditate et illo in incidunt laboriosam libero, minus molestias necessitatibus obcaecati quos repellat repudiandae sed ullam? Facilis ipsum maxime necessitatibus?</p>
+            <hr/>
+            <h2>Creatures</h2>
+            <ul>
+                {% for creature in tag.creatures %}
+                    <li><a href="#">{{ creature.nom }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <!-- /.row -->
+    <hr>
+{% endblock %}

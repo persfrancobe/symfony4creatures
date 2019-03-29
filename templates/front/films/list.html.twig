@@ -1,0 +1,33 @@
+<div>
+    <hr>
+    <!-- Title -->
+    <h2 class="mt-4">Les Films</h2>
+    <hr>
+    {% for film in films  %}
+        <!-- Project One -->
+        <div class="row">
+            <div class="col-md-4">
+                <a href="{{ path('app_films_show',{id:film.id,slug:film.slug}) }}">
+                    <img class="img-fluid rounded mb-3 mb-md-0" src="{{ asset('build/assets/images/film_'~random(1,3)~'.jpg') }}" alt="">
+                </a>
+            </div>
+            <div class="col-md-8">
+                <h3>{{ film.titre}}</h3>
+                <p class="lead">
+                    dans
+                    <a href="{{ path('app_films_show',{id:film.id,slug:film.slug}) }}">{{ film.slug}}</a> le 01-01-2017
+                </p>
+                <p>{{ film.synopsis}}</p>
+                <a class="btn btn-primary" href="{{ path('app_films_show',{id:film.id,slug:film.slug}) }}">Voir la Film</a>
+                <hr/>
+                <ul class="list-inline tags">
+                    {% for cr in film.creatures %}
+                    <li><a href="{{ path('app_creatures_show',{id:cr.id,slug:cr.slug}) }}" class="btn btn-default btn-xs">{{ cr.nom }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <!-- /.row -->
+        <hr>
+    {% endfor %}
+</div>
