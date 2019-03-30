@@ -2,52 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b82d685b-73aa-43dd-addb-21ecf4b92947" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/packages/knp_paginator.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/base.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/front/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symFleronPoo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symFleronPoo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Back/CreaturesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminCreaturesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Front/CreaturesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Front/CreaturesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Front/FilmsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Front/FilmsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Front/PagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Front/PagesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Front/TagsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Front/TagsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/FakerFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/FakerFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Creatures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Creatures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Films.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Films.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Pages.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Pages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Tags.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Tags.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/CreaturesType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CreaturesType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/PagesType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190329012632.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CreaturesRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CreaturesRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/FilmsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/FilmsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/back/creatures/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/creatures/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/back/creatures/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/creatures/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/back/creatures/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/creatures/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/back/creatures/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/creatures/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/back/creatures/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/creatures/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/back/creatures/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/creatures/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/back/pages/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/back/pages/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/back/pages/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/back/pages/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/back/pages/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/back/pages/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/creatures/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/creatures/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/creatures/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/creatures/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/films/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/films/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/films/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/films/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/pages/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/pages/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/tags/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/tags/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -130,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/Front/CreaturesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="46" column="89" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
+            <state relative-caret-position="724">
+              <caret line="41" column="75" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
               <folding>
                 <element signature="e#40#65#0#PHP" expanded="true" />
                 <element signature="e#1062#1276#0#PHP" expanded="true" />
@@ -210,8 +165,9 @@
         <option value="$PROJECT_DIR$/src/Repository/CreaturesRepository.php" />
         <option value="$PROJECT_DIR$/src/Repository/FilmsRepository.php" />
         <option value="$PROJECT_DIR$/src/Controller/Front/FilmsController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/Front/CreaturesController.php" />
         <option value="$PROJECT_DIR$/templates/admin/creatures/new.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/Front/CreaturesController.php" />
+        <option value="$PROJECT_DIR$/templates/security/login.html.twig" />
       </list>
     </option>
   </component>
@@ -331,7 +287,7 @@
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1616" />
@@ -385,20 +341,20 @@
               <item name="symFleronPoo" type="b2602c69:ProjectViewProjectNode" />
               <item name="symFleronPoo" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symFleronPoo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symFleronPoo" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="creatures" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="symFleronPoo" type="b2602c69:ProjectViewProjectNode" />
               <item name="symFleronPoo" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="creatures" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symFleronPoo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symFleronPoo" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -437,12 +393,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1553814449949</updated>
-      <workItem from="1553814452911" duration="45452000" />
+      <workItem from="1553814452911" duration="46302000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45452000" />
+    <option name="totallyTimeSpent" value="46302000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -478,9 +434,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/34f9cb27-df7d-41ab-a3d9-91bbeed0a203/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/fzaninotto/faker/src/Faker/Factory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -854,13 +807,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/front/creatures/list.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="24" column="18" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Front/FilmsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -912,10 +858,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/front/creatures/list.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/security/login.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Front/CreaturesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="46" column="89" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
+        <state relative-caret-position="724">
+          <caret line="41" column="75" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
           <folding>
             <element signature="e#40#65#0#PHP" expanded="true" />
             <element signature="e#1062#1276#0#PHP" expanded="true" />

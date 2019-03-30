@@ -34,11 +34,14 @@ class CreaturesController extends AbstractController
 
     }
 
+
     /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Knp\Component\Pager\PaginatorInterface   $paginator
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/", name="index", methods={"GET"},requirements={"id"="\d+"})
      */
-    public function index(Request $request,PaginatorInterface $paginator): Response
+    public function index(Request $request, PaginatorInterface $paginator): Response
     {
         $creatures = $this->getDoctrine()
             ->getRepository(Creatures::class)->findBy([],['dateCreation'=>'DESC'],5);
