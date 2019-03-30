@@ -15,7 +15,6 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CreaturesController extends AbstractController
 {
-
     /**
      * @param Request $request
      * @param PaginatorInterface $paginator

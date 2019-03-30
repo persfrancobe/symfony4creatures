@@ -9,6 +9,8 @@
 
 require('../css/bootstrap.min.css');
 require('../css/app.css');
+require('webpack-jquery-ui/autocomplete');
+require('webpack-jquery-ui/css');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 const $ = require('jquery');// assets/js/_main.js
@@ -16,4 +18,14 @@ const imagesContext = require.context('../images', true, /\.(png|jpg|jpeg|gif|ic
 imagesContext.keys().forEach(imagesContext);
 
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+$(document).ready(function () {
+    $.ajax('/ajax/list',{
+        dataType : "json",
+        success: (data) => {
+            $('#smartkey').autocomplete({
+                source:data,
+                minLength : 3,
+            })
+        }
+    });
+});
