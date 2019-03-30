@@ -49,16 +49,4 @@ class CreaturesRepository extends ServiceEntityRepository
     }
 
 
-<<<<<<< HEAD
-=======
-    public function findBySomeField()
-    {
-        return $this->createQueryBuilder('c')
-            ->leftJoin('c.tags',('t'))
-            ->leftJoin('c.film',('f'))
-            ->addSelect('f','t')
-            ->getQuery();       ;
-    }
->>>>>>> pagination
-
 }

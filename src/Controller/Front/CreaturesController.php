@@ -8,33 +8,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Service\SearchCreatures;
 
 /**
  * @Route("/creatures",name="app_creatures_")
  */
 class CreaturesController extends AbstractController
 {
-    /**
-     * @param Request $request
-     * @param PaginatorInterface $paginator
-     * @param \App\Service\SearchCreatures              $searchCreatures
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/search",name="search",methods={"GET"})
-     */
-    public function search(Request $request, SearchCreatures $searchCreatures,PaginatorInterface $paginator){
-        $smartkey=$request->query->get('smartkey');
-        $creatures=$searchCreatures->search($smartkey);
-        $pagination=$paginator->paginate($creatures,$request->query->getInt('page', 1),3);
-        return $this->render('front/pages/show.html.twig',[
-            'creatures'=>$pagination,
-            'page'=>['slug'=>'les creatures','titre'=>'Créatures Trouvé','texte'=>" Resultat trouvé a Votre Recherche!"]
-        ]);
-
-    }
-
-
-    /**
+     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \Knp\Component\Pager\PaginatorInterface   $paginator
      * @return \Symfony\Component\HttpFoundation\Response
@@ -45,6 +25,7 @@ class CreaturesController extends AbstractController
         $creatures = $this->getDoctrine()
             ->getRepository(Creatures::class)
             ->findAll();
+        //knp_paginato from kpn bundle to pagination
         $pagination=$paginator->paginate($creatures,$request->query->getInt('page', 1),3);
 
         return $this->render('front/creatures/list.html.twig',['creatures' => $pagination]);
@@ -54,7 +35,7 @@ class CreaturesController extends AbstractController
     /**
      * @param \App\Entity\Creatures $creature
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/{id}/{slug}", name="show", methods={"GET"},requirements={"id"="\d+"})
+     * @Route("/{id}/{slug}", name="show", methods={"GET"},requirements={"id"="\d+", "slug": "[a-z][a-z0-9\-]*"})
      */
     public function show(Creatures $creature): Response
     {
