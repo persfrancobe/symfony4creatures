@@ -25,29 +25,29 @@ class CreaturesRepository extends ServiceEntityRepository
 
 
     /**
-     * @param array $value
-     * @return Creatures[] Returns an array of Creatures objects
+     * @param array $arstr
+     * @return \Doctrine\ORM\Query
      */
-    public function findByNom(Array $value)
+    public function findByNom(Array $arstr)
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere("c.nom LIKE '%".$value[0]."%'")
-            ->orderBy('c.dateCreation', 'desc')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+         $qb=$this->createQueryBuilder('c');
+         $qb->orderBy('c.dateCreation', 'desc')
+            ->join('c.film','f')
+            ->join('c.tags','t')
+            ->addSelect('f','t');
+         foreach ($arstr as $value) {
+             $qb//->orWhere("c.nom LIKE '%".$value."%'")
+                 //->orWhere("c.texteSuite LIKE '%".$value."%'")
+                 //->orWhere("f.titre LIKE '%".$value."%'")
+                 //->orWhere("t.nom LIKE '%".$value."%'")
+                 ->orWhere($qb->expr()->like('c.nom', $qb->expr()->literal('%' . $value . '%')))
+                 //->orWhere($qb->expr()->like('c.texteSuite', $qb->expr()->literal('%' . $value . '%')))
+                 ->orWhere($qb->expr()->like('f.titre', $qb->expr()->literal('%' . $value . '%')))
+                 ->orWhere($qb->expr()->like('t.nom', $qb->expr()->literal('%' . $value . '%')));
+         }
+         return $qb->setMaxResults(10)->getQuery();
     }
 
-    /*
-    public function findOneBySomeField($value): ?Creatures
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
+
+
 }

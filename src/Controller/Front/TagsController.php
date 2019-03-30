@@ -13,8 +13,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class TagsController extends AbstractController
 {
     /**
-     * @param \App\Entity\Tags $tag
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param Tags $tag
+     * @return Response
      * @Route("/{id}/{slug}", name="show", methods={"GET"},requirements={"id":"[1-9][0-9]*"})
      */
     public function show(Tags $tag): Response
@@ -25,7 +25,7 @@ class TagsController extends AbstractController
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function list(): Response
     {
