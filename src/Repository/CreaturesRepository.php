@@ -41,22 +41,13 @@ class CreaturesRepository extends ServiceEntityRepository
                  //->orWhere("f.titre LIKE '%".$value."%'")
                  //->orWhere("t.nom LIKE '%".$value."%'")
                  ->orWhere($qb->expr()->like('c.nom', $qb->expr()->literal('%' . $value . '%')))
-                 ->orWhere($qb->expr()->like('c.texteSuite', $qb->expr()->literal('%' . $value . '%')))
+                 //->orWhere($qb->expr()->like('c.texteSuite', $qb->expr()->literal('%' . $value . '%')))
                  ->orWhere($qb->expr()->like('f.titre', $qb->expr()->literal('%' . $value . '%')))
                  ->orWhere($qb->expr()->like('t.nom', $qb->expr()->literal('%' . $value . '%')));
          }
          return $qb->setMaxResults(10)->getQuery();
     }
 
-    /*
-    public function findOneBySomeField($value): ?Creatures
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
+
+
 }
