@@ -1,8 +1,14 @@
-<div>
-    <hr>
+{% extends 'front/base.html.twig' %}
+{% block title %}Les Créatures {% endblock %}
+{% block body %}
+    <!-- Page Heading -->
     <!-- Title -->
-    <h2 class="mt-4">Les Créatures</h2>
+    <h1 class="mt-4">Les Créatures</h1>
     <hr>
+    <!-- Post Content -->
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aperiam cupiditate, deleniti deserunt doloribus dolorum molestias nemo nisi nobis odit officiis porro quis quos repellendus sequi sint temporibus velit veritatis.</p>
+    <hr>
+<div>
     {% for creature in creatures  %}
         <!-- Project One -->
         <div class="row">
@@ -31,3 +37,4 @@
         {{ knp_pagination_render(creatures) }}
     </div>
 </div>
+{% endblock %}

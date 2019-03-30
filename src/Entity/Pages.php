@@ -29,7 +29,7 @@ class Pages
     /**
      * @ORM\Column(type="string", length=45)
      */
-    private $type;
+    private $url;
 
     /**
      * @ORM\Column(type="text")
@@ -44,17 +44,17 @@ class Pages
     /**
      * @return mixed
      */
-    public function getType()
+    public function getUrl()
     {
-        return $this->type;
+        return $this->url;
     }
 
     /**
-     * @param mixed $type
+     * @param mixed $url
      */
-    public function setType($type): void
+    public function setUrl($url): void
     {
-        $this->type = $type;
+        $this->type = $url;
     }
 
 

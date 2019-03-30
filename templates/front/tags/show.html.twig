@@ -19,7 +19,7 @@
             <h2>Creatures</h2>
             <ul>
                 {% for creature in tag.creatures %}
-                    <li><a href="#">{{ creature.nom }}</a></li>
+                    <li><a href="{{ path('app_creatures_show',{id:creature.id,slug:creature.slug}) }}">{{ creature.nom }}</a></li>
                 {% endfor %}
             </ul>
         </div>

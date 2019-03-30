@@ -3,12 +3,12 @@
 namespace App\Controller\Front;
 
 use App\Entity\Creatures;
-use App\Service\SearchCreatures;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\SearchCreatures;
 
 /**
  * @Route("/creatures",name="app_creatures_")
@@ -44,7 +44,8 @@ class CreaturesController extends AbstractController
     public function index(Request $request, PaginatorInterface $paginator): Response
     {
         $creatures = $this->getDoctrine()
-            ->getRepository(Creatures::class)->findBy([],['dateCreation'=>'DESC'],5);
+            ->getRepository(Creatures::class)
+            ->findAll();
         $pagination=$paginator->paginate($creatures,$request->query->getInt('page', 1),3);
 
         return $this->render('front/creatures/list.html.twig',['creatures' => $pagination]);
