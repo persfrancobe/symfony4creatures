@@ -4,7 +4,6 @@ namespace App\Controller\Front;
 
 use App\Entity\Films;
 use Knp\Component\Pager\PaginatorInterface;
-use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,11 +24,10 @@ class FilmsController extends AbstractController
      */
     public function index(PaginatorInterface $paginator, Request $request): Response
     {
-        $films = $this->getDoctrine()
-            ->getRepository(Films::class)->findAllMe();
-        $films=$paginator->paginate($films,$request->query->getInt('page', 1),3);
+        $films = $this->getDoctrine()->getRepository(Films::class)->findAll();
+        $pagination=$paginator->paginate($films,$request->query->getInt('page', 1),3);
 
-        return $this->render("front/films/list.html.twig" ,['films' => $films]);
+        return $this->render("front/films/list.html.twig" ,['films' => $pagination]);
     }
 
 

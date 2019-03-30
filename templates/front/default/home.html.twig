@@ -1,0 +1,40 @@
+{% extends 'front/base.html.twig' %}
+{% block title %}Accueil{% endblock %}
+{% block body %}
+    <!-- Page Heading -->
+    <!-- Title -->
+    <h1 class="mt-4">Les Derniere Créatures</h1>
+    <hr>
+    <!-- Post Content -->
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aperiam cupiditate, deleniti deserunt doloribus dolorum molestias nemo nisi nobis odit officiis porro quis quos repellendus sequi sint temporibus velit veritatis.</p>
+    <hr>
+    <div>
+        {% for creature in creatures  %}
+            <!-- Project One -->
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="{{ path('app_creatures_show',{id:creature.id,slug:creature.slug}) }}">
+                        <img class="img-fluid rounded mb-3 mb-md-0" src="{{ asset('build/assets/images/'~creature.image) }}" alt="{{ creature.slug }}">
+                    </a>
+                </div>
+                <div class="col-md-8">
+                    <h3>{{ creature.nom }}</h3>
+                    <p class="lead">dans   <a class="btn btn-secondary" href="{{ path('app_films_show',{id:creature.film.id,slug:creature.film.slug}) }}">{{ creature.film.titre }}</a>{{ creature.dateCreation|date("m/d/Y", "Europe/Paris") }}</p>
+                    <p>{{ creature.texteSuite}}</p>
+                    <a class="btn btn-primary" href="{{ path('app_creatures_show',{id:creature.id,slug:creature.slug}) }}">Voir la Créature</a>
+                    <hr/>
+                    <ul class="list-inline tags">
+                        {% for tag in creature.tags %}
+                            <li><a href="{{ path('app_tags_show',{id:tag.id,slug:tag.slug}) }}" class="btn btn-default btn-xs">{{ tag.nom }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <!-- /.row -->
+            <hr>
+        {% endfor %}
+        <div class="navigation">
+            {{ knp_pagination_render(creatures) }}
+        </div>
+    </div>
+{% endblock %}
