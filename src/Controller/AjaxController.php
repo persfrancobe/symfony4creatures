@@ -17,23 +17,6 @@ class AjaxController extends AbstractController
 {
 
     /**
-     * @param $key
-     * @return null|string
-     * @Route("/{key}", name="key", methods={"GET"})
-
-    public function ajax($key){
-        $resultat=$this->getDoctrine()->getRepository(Creatures::class)->findByName($key);
-        if(is_iterable($resultat)){
-            foreach ($resultat as $value){
-                $wrds[]=$value->getNom();
-            }
-        }else{
-            $wrds=$resultat->getNom();
-        }
-        return new Response($wrds,Response::HTTP_OK);
-    }*/
-
-    /**
      * @return  Response
      * @Route("/list", name="list", methods={"GET"})
      */

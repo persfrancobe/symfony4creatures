@@ -12,6 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/admin/creatures",name="app_admin_creatures_")
+ * creatures crud for admin bundle
  */
 class AdminCreaturesController extends AbstractController
 {
@@ -27,6 +28,7 @@ class AdminCreaturesController extends AbstractController
         $creatures = $this->getDoctrine()
             ->getRepository(Creatures::class)
             ->findAll();
+        //knp_paginato from kpn bundle to pagination
         $pagination=$paginator->paginate($creatures,$request->query->getInt('page', 1),3);
         return $this->render('admin/creatures/index.html.twig', [
             'creatures' => $pagination
@@ -66,7 +68,11 @@ class AdminCreaturesController extends AbstractController
         ]);
     }
 
+
     /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \App\Entity\Creatures                     $creature
+     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Creatures $creature): Response
@@ -88,7 +94,11 @@ class AdminCreaturesController extends AbstractController
         ]);
     }
 
+
     /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \App\Entity\Creatures                     $creature
+     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/{id}", name="delete", methods={"DELETE"})
      */
     public function delete(Request $request, Creatures $creature): Response

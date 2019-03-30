@@ -25,6 +25,7 @@ class FilmsController extends AbstractController
     public function index(PaginatorInterface $paginator, Request $request): Response
     {
         $films = $this->getDoctrine()->getRepository(Films::class)->findAll();
+        //knp_paginato from kpn bundle to pagination
         $pagination=$paginator->paginate($films,$request->query->getInt('page', 1),3);
 
         return $this->render("front/films/list.html.twig" ,['films' => $pagination]);
@@ -34,7 +35,7 @@ class FilmsController extends AbstractController
     /**
      * @param \App\Entity\Films
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/{id}/{slug}", name="show", methods={"GET"},requirements={"id":"[1-9][0-9]*"})
+     * @Route("/{id}/{slug}", name="show", methods={"GET"},requirements={"id":"[1-9][0-9]*", "slug": "[a-z][a-z0-9\-]*"})
      */
     public function show(Films $film): Response    {
         return $this->render("front/films/show.html.twig" , ['film' => $film,]);
