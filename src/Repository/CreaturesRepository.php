@@ -45,9 +45,20 @@ class CreaturesRepository extends ServiceEntityRepository
                  ->orWhere($qb->expr()->like('f.titre', $qb->expr()->literal('%' . $value . '%')))
                  ->orWhere($qb->expr()->like('t.nom', $qb->expr()->literal('%' . $value . '%')));
          }
-         return $qb->setMaxResults(10)->getQuery();
+         return $qb->getQuery();
     }
 
 
+<<<<<<< HEAD
+=======
+    public function findBySomeField()
+    {
+        return $this->createQueryBuilder('c')
+            ->leftJoin('c.tags',('t'))
+            ->leftJoin('c.film',('f'))
+            ->addSelect('f','t')
+            ->getQuery();       ;
+    }
+>>>>>>> pagination
 
 }
