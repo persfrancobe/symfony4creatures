@@ -15,7 +15,7 @@ class TagsController extends AbstractController
     /**
      * @param Tags $tag
      * @return Response
-     * @Route("/{id}/{slug}", name="show", methods={"GET"},requirements={"id":"[1-9][0-9]*"})
+     * @Route("/{id}/{slug}", name="show", methods={"GET"},requirements={"id":"[1-9][0-9]*", "slug": "[a-z][a-z0-9\-]*"})
      */
     public function show(Tags $tag): Response
     {

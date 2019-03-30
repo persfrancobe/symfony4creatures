@@ -66,7 +66,7 @@ class Creatures
     {
         $this->tags = new ArrayCollection();
         $this->dateCreation=new \DateTime();
-        $this->slug = strtolower($this->nom);
+
     }
 
     public function getId(): ?int
@@ -81,7 +81,9 @@ class Creatures
 
     public function setNom(string $nom): self
     {
+
         $this->nom = $nom;
+        $this->slug = strtolower($nom);
 
         return $this;
     }
