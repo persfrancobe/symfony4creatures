@@ -27,7 +27,7 @@ class AdminCreaturesController extends AbstractController
     {
         $creatures = $this->getDoctrine()
             ->getRepository(Creatures::class)
-            ->findAll();
+            ->findBy([],['dateCreation'=>'DESC']);
         //knp_paginato from kpn bundle to pagination
         $pagination=$paginator->paginate($creatures,$request->query->getInt('page', 1),3);
         return $this->render('admin/creatures/index.html.twig', [
