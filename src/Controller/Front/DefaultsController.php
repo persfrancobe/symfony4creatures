@@ -12,6 +12,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Service\SearchCreatures;
 
 /**
+ * Class DefaultsController
+ * @package App\Controller\Front
  * @Route(name="app_")
  */
 class DefaultsController extends AbstractController
@@ -40,11 +42,12 @@ class DefaultsController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\Response
      * page's list to creat nav(menu)
      */
-    public function nav()
+    public function nav($route)
     {
         $pages=$this->getDoctrine()->getRepository(Pages::class)->findAll();
         return $this->render('partials/_nav.html.twig',[
             'pages'=>$pages,
+            'route'=>$route
         ]);
     }
     /**
@@ -57,13 +60,16 @@ class DefaultsController extends AbstractController
      */
     public function search(Request $request, SearchCreatures $searchCreatures,PaginatorInterface $paginator){
         $smartkey=$request->query->get('smartkey');
-        $creatures=$searchCreatures->search($smartkey);
-        //knp_paginato from kpn bundle to pagination
-        $pagination=$paginator->paginate($creatures,$request->query->getInt('page', 1),3);
-        return $this->render('front/defaults/searchResualt.html.twig',[
-            'creatures'=>$pagination,
-            'motclef'=>$smartkey
-        ]);
+        if($smartkey!= NULL) {
+            $creatures = $searchCreatures->search($smartkey);
+            //knp_paginato from kpn bundle to pagination
+            $pagination = $paginator->paginate($creatures, $request->query->getInt('page', 1), 3);
+            return $this->render('front/defaults/searchResualt.html.twig', [
+                'creatures' => $pagination,
+                'motclef' => $smartkey
+            ]);
+        }
+        return $this->redirectToRoute('app_homepage');
 
     }
 }

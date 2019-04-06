@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
+ * Class AdminCreaturesController
+ * @package App\Controller\Admin
  * @Route("/admin/creatures",name="app_admin_creatures_")
  * creatures crud for admin bundle
  */
@@ -48,6 +50,7 @@ class AdminCreaturesController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($creature);
             $entityManager->flush();
+            $this->addFlash("success", "votre creature a bien ete cree");
 
             return $this->redirectToRoute('app_admin_creatures_index');
         }
@@ -82,6 +85,7 @@ class AdminCreaturesController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash("success", "Votre creature a bien ete modifie");
 
             return $this->redirectToRoute('app_admin_creatures_index', [
                 'id' => $creature->getId(),
@@ -107,6 +111,7 @@ class AdminCreaturesController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($creature);
             $entityManager->flush();
+            $this->addFlash("success", "Votre creature a bien ete supprime");
         }
 
         return $this->redirectToRoute('app_admin_creatures_index');

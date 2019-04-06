@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller;
+namespace App\Controller\Front;
 use App\Entity\Films;
 use App\Entity\Tags;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

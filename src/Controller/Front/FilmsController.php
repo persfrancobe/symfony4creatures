@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
+ * Class FilmsController
+ * @package App\Controller\Front
  * @Route("/films",name="app_films_")
  */
 class FilmsController extends AbstractController
