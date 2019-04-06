@@ -30,11 +30,13 @@ class FakerFixtures extends Fixture
     $creature = new Creatures();
     $creature->setTexteSuite($faker->text(100));
     $creature->setNom($faker->domainWord);
+    $creature->setSlug($faker->domainWord);
     $creature->setImage(($i+1).".jpg");
     $creature->setTexteLead($faker->text(200));
        for ($j = 0; $j < 3; $j++) {
            $film = new Films();
            $film->setTitre($faker->company);
+           $film->setSlug($faker->domainWord);
            $film->setSynopsis($faker->text);
            $manager->persist($film);
            $creature->setFilm($film);
@@ -42,6 +44,7 @@ class FakerFixtures extends Fixture
 
         $tage = new Tags();
         $tage->setNom($faker->domainWord);
+        $tage->setSlug($faker->domainWord);
         $manager->persist($tage);
     $creature->AddTag($tage);
     $manager->persist($creature);

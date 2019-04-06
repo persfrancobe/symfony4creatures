@@ -1,9 +1,8 @@
 <?php
-namespace App\Controller;
+namespace App\Controller\Front;
 use App\Entity\Films;
 use App\Entity\Tags;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Creatures;
@@ -19,6 +18,7 @@ class AjaxController extends AbstractController
     /**
      * @return  Response
      * @Route("/list", name="list", methods={"GET"})
+     *                  creat a list of creatures's names and films's titles and tags's names
      */
     public function ajaxList(){
         $list=[];

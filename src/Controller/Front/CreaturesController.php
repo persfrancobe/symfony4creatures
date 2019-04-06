@@ -9,7 +9,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 /**
+ * Class CreaturesController
+ * @package App\Controller\Front
  * @Route("/creatures",name="app_creatures_")
  */
 class CreaturesController extends AbstractController

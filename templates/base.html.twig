@@ -4,6 +4,12 @@
 <!-- Page Content -->
 <div class="container">
     <div class="row">
+
+        {% for message in app.flashes('success') %}
+            <div class="alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
          <!-- Post Content Column -->
         <div class="col-lg-8">
             {% block body %}{% endblock %}

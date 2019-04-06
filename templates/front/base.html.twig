@@ -1,3 +1,4 @@
 {% extends 'base.html.twig' %}
-{% block nav %}{{ render(controller('App\\Controller\\Front\\DefaultsController::nav',{type:''})) }}{% endblock %}
+
+{% block nav %}{{ render(controller('App\\Controller\\Front\\DefaultsController::nav', {'route':app.request.get('_route')}))}}{% endblock %}
 {% block sidebar %}{% include 'partials/_sidebar.html.twig' %}{% endblock %}

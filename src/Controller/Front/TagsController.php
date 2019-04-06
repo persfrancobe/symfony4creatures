@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
+ * Class TagsController
+ * @package App\Controller\Front
  * @Route("/tags", name="app_tags_")
  */
 class TagsController extends AbstractController
